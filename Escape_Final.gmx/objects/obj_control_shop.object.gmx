@@ -25,19 +25,63 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Background.
+            <string>/*
+    Todos los productos
+    sprite = no comprado (precio)
+
+
+    Buscar en la variable 
+
+    productos_seleccionados[0] -- &gt; Cambiandole el Sprite.
+    productos_seleccionados[1] -- &gt; Cambiando sprite.,
+    productos_seleccionados[2]
+    
+    // Busqueda de los comprados pero no seleccionados.
+    productos_comprados -- &gt; Modificar su sprite a productos comprados pero no seleccionados.
+    
+    
+    
+    // Sprites:  No comprado (precio), Cuando esta comprado pero no seleccionado, cuando esta seleccionado.\
+    
+
+
+*/
+
+
+
+
+
+
+/* View Movement. NO TOCAR */
+scroll = false;
+prevx = 0;
+momentum = 0;
+scrolldir = 0;
+usemomentum = true;
+
+
+
+
+
+
+// Backgrounds.
+
 // Skins.
 // Poderes.
+
+
+
 // Monedas. -- &gt; comprar con plata.
+
 
 /*
 
 Lo que el programa debe hacer es:
 
-1. Comparar la cantidad actual de las monedas y el valor de cada skin, 
+1. Comparar la cantidad actual de las monedas y el valor de cada skin,  --- &gt; valor
    background, niveles, etc.
 
-2. Si la cantidad actual de monedas es mayor a determinado valor de un 
+2. Si la cantidad actual de monedas es mayor o igual a determinado valor de un -- &gt; booleano si puede o no comprarlo.
    producto, entonces puede comprarlo.
 
 3. Si puede comprarlo y el jugador quiere comprarlo, si le da click debe 
@@ -45,11 +89,16 @@ Lo que el programa debe hacer es:
    entonces debe aparecer un mensaje diciendole que no tiene suficiente dinero 
    o sugerirle que compre monedas.
 
+   monedas -= valor_producto;
+   producto1_comprado = true;
+   
 4. Si efectivamente quiere comprar y esta seguro, entonces quitarle la cantidad
    de monedas actuales que correspondan al valor de la compra, y guardar 
-   en un archivo que producto compro: Este producto debe quedar como seleccionado.
+   en un archivo que producto compro: Este producto debe quedar como seleccionado. 
 
 5. Variables de seleccion [debe guardar que productos estan selecionados y cargarlos].
+
+    producto1_seleccionado = true; -- &gt; archivo.
 
 
 &lt; VARIABLES &gt;
@@ -58,11 +107,118 @@ Lo que el programa debe hacer es:
 2. Array Asociativo que guarde el valor de puede comprar o no.
 4. Array Asociativo que guarde el valor de si el producto esta comprado o no.
 5. Array Asociativo que guarde si esta seleccionado o no. 
+
     [SKIN,BACKGROUND]
     [2,3]
-
+    
+    
 */
-//productos = ds_list_create();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/* Market Place */
+/*
+
+    Si el jugador oprime X productos [x,y] entonces 
+    
+        index -&gt; coordenadas del mouse sobre el producto.
+        - &gt; Determinar la posicion de los productos.
+        
+        src_compra(index);
+        
+        
+*/
+
+/* View Movement NO TOCAR. */
+
+if (scroll)
+{
+    // We are scrolling
+    // Check to see if the user's finger is still on the screen
+    if (device_mouse_check_button(0, mb_left))
+    {
+        // Screen is being touched, we need to scroll
+        // Calculate the new location of the touch
+        var newy; newy = view_yview[0] - (device_mouse_raw_y(0) - prevx);
+        // Set the momentum and scroll direction if momentum is used 
+        if (usemomentum)
+        {
+            // Set the momentum
+            // The faster the user was moving his or her finger, the more momentum
+            momentum = abs(round((device_mouse_raw_y(0) - prevx) /2));
+            if (device_mouse_raw_y(0) - prevx &gt; 0) { scrolldir = 0; } // We are scrolling left
+            else { scrolldir = 1; } // We are scrolling right
+        }
+        // Keep the new location within the dimensions of the room
+        if (newy &lt; 0) { newy = 0; }
+        if (newy + view_hview[0] &gt; room_height) { newy = room_height- view_hview[0]; }
+        // Set the new location of the view
+        view_yview[0] = newy;
+        // Store the current touch location to be used for comparison on the next step
+        prevx = device_mouse_raw_y(0);          
+    }
+    // Check to see if the uesr removed his or her finger from the screen
+    if (device_mouse_check_button_released(0, mb_left))
+    {
+        // User has removed his or her finger
+        prevx = 0; scroll = false;
+    }
+}
+else
+{
+    background_hspeed[0] = -2;
+    background_hspeed[1] = -2;
+    // Check to see if the user initiated a touch
+    if (device_mouse_check_button_pressed(0, mb_left))
+    {
+        // User just touched the screen, we are beginning about to scroll
+        // Record the current location of the touch to compare on the next step
+        scroll = true; prevx = device_mouse_raw_y(0);
+    }
+    // Check to see if momentum is enabled and there is some remaining
+    if (usemomentum &amp;&amp; momentum &gt; 0)
+    {
+        // There is some momentum.  We need to scroll a bit more
+        var newy;
+        if (scrolldir == 0)
+        {
+            // We are scrolling left
+            newy = view_yview[0] - momentum;
+            // Don't scroll beyond the room's dimensions
+            if (newy &lt;= 0) { newy = 0; momentum = 0; }
+        }
+        else
+        {
+            // We are scrolling right
+            newy = view_yview[0] + momentum;
+            // Don't scroll beyond the room's dimensions
+            if (newy + view_hview[0] &gt;= room_height) { newy = room_height- view_hview[0]; momentum = 0; }
+        }
+        // Set the new view location
+        view_yview[0] = newy;
+        // Decrement momentun if &gt; 0
+        if (momentum &gt; 0) { momentum -= 1; }
+    }    
+}
 </string>
           </argument>
         </arguments>

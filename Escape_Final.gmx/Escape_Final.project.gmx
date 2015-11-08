@@ -116,6 +116,7 @@
     <script>scripts\src_news.gml</script>
     <script>scripts\src_estrellas.gml</script>
     <script>scripts\src_if.gml</script>
+    <script>scripts\scr_compra.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_1</font>
@@ -219,6 +220,7 @@
   <rooms name="rooms">
     <room>rooms\Room_Presentation</room>
     <room>rooms\Game_Menu</room>
+    <room>rooms\Room_Market</room>
     <room>rooms\Room_News</room>
     <room>rooms\Room_Mensajes</room>
     <rooms name="Game">

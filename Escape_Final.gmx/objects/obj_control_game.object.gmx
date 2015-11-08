@@ -28,8 +28,31 @@
             <string>if(room==Room_Presentation){
     globalvar Rooms, SavedRoom, Muertes, res, monedas, monedas_room, idioma, trampa, trampa2, pos, tiempo, Score_tiempo, Best_Muertes, iniciar, reto,
               bk_x, bk_y, y_index, contador_creador, invertir, final, paths, estado, pausarmusica, noticias, publicidad;
+              
     globalvar subimg, nivel, aventura, estrellas, cantidad_estrellas, mostrar_tiempo; // Adventure.
     pausarmusica = 0;
+    
+    globalvar valor_productos, productos_comprados, productos_seleccionados; // Shop.
+    
+    valor_productos = ds_list_create();
+    ds_list_add(valor_productos,100);
+    // Definir que productos, y el precio.
+    
+    productos_comprados = ds_list_create(); // Encriptado.
+    
+    productos_seleccionados = ds_list_create(); // index  = cantidad categorias.
+
+    
+
+    // Skins. 
+    // X.
+    // Y.
+    
+    // Poderes -- &gt; consumible.
+    // monedas -- &gt; consumuble.
+    
+
+    
     
     // Combinación.
     trampa = ds_list_create();
