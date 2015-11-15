@@ -33,27 +33,46 @@
     pausarmusica = 0;
     
     globalvar valor_productos, productos_comprados, productos_seleccionados; // Shop.
-    
+        
+    // Productos no consumibles.
     valor_productos = ds_list_create();
-    ds_list_add(valor_productos,100);
-    // Definir que productos, y el precio.
+    ds_list_add(valor_productos,20);
+    ds_list_add(valor_productos,20);
+    ds_list_add(valor_productos,30);
+    ds_list_add(valor_productos,30);
+    ds_list_add(valor_productos,30);
+    ds_list_add(valor_productos,30);
+    ds_list_add(valor_productos,30);
+    ds_list_add(valor_productos,30);
+    ds_list_add(valor_productos,30);
+    ds_list_add(valor_productos,30);
     
-    productos_comprados = ds_list_create(); // Encriptado.
+    // Arreglo de los productos comprados.
+    productos_comprados = ds_list_create();
+    for(i = 0; i &lt; 10; i++){
+        ds_list_add(productos_comprados,-1);
+    }
     
-    productos_seleccionados = ds_list_create(); // index  = cantidad categorias.
-
+    productos_seleccionados = ds_list_create();
+     for(i = 0; i &lt; 3; i++){
+        ds_list_add(productos_seleccionados,-1);
+    }
     
-
-    // Skins. 
-    // X.
-    // Y.
+    // Cargue que producto esta seleccionado.
+    if(file_exists(working_directory + 'market.sav')){
     
-    // Poderes -- &gt; consumible.
-    // monedas -- &gt; consumuble.
-    
-
-    
-    
+        ini_open(working_directory + 'market.sav');
+        
+        str = ini_read_string("market_comprados","pass",""); // Colocar clave dificil.
+        if(str != ""){ ds_list_read(productos_comprados,str); }
+        
+        // Carga el arreeglo con los productos_seleccionados. []
+        str = ini_read_string("market_seleccionados","pass",""); // Colocar clave dificil.
+        if(str != ""){ ds_list_read(productos_seleccionados,str); }
+        
+        ini_close();
+    }
+        
     // Combinación.
     trampa = ds_list_create();
     trampa2 = ds_list_create();

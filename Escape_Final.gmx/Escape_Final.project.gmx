@@ -97,6 +97,7 @@
       <sprite>sprites\spr_camacho</sprite>
       <sprite>sprites\spr_steven</sprite>
     </sprites>
+    <sprite>sprites\sprite62</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>

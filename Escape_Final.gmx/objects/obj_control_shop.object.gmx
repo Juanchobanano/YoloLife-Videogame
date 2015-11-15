@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
+            <string>
+
+/*
     Todos los productos
     sprite = no comprado (precio)
 
@@ -42,9 +44,6 @@
     
     
     // Sprites:  No comprado (precio), Cuando esta comprado pero no seleccionado, cuando esta seleccionado.\
-    
-
-
 */
 
 
@@ -137,13 +136,32 @@ Lo que el programa debe hacer es:
             <kind>1</kind>
             <string>/* Market Place */
 /*
-
     Si el jugador oprime X productos [x,y] entonces 
     
+    MUCHOS CONDICIONALES POR CADA PRODUCTO.
+    Me diga el index.
+
         index -&gt; coordenadas del mouse sobre el producto.
         - &gt; Determinar la posicion de los productos.
         
-        src_compra(index);
+        src_compra(index); // no retorna nada.
+        
+        
+        1. Hace condicionales // sprites de los productos y los objetos. diseño.
+        
+        
+        
+        2. Hacer la funcion index. // programacion
+        
+        
+        
+    -- &gt; 3s    3. Guardar valores nuevos. ( cuando compre el producto [productos_comprados], cuando seleccione un producto  [productos_seleccionados] ).
+        4. Cargar valores de la tienda.
+        
+        
+        Sprite = sprite_de producto comprado pero no seleccionado
+        Sprite = producto seleccionado -- :&gt; se selecciona.
+        
         
         
 */
