@@ -50,7 +50,7 @@
     // Arreglo de los productos comprados.
     productos_comprados = ds_list_create();
     for(i = 0; i &lt; 10; i++){
-        ds_list_add(productos_comprados,-1);
+        ds_list_add(productos_comprados,false);
     }
     
     productos_seleccionados = ds_list_create();

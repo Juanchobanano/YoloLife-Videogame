@@ -25,93 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-
-/*
-    Todos los productos
-    sprite = no comprado (precio)
-
-
-    Buscar en la variable 
-
-    productos_seleccionados[0] -- &gt; Cambiandole el Sprite.
-    productos_seleccionados[1] -- &gt; Cambiando sprite.,
-    productos_seleccionados[2]
-    
-    // Busqueda de los comprados pero no seleccionados.
-    productos_comprados -- &gt; Modificar su sprite a productos comprados pero no seleccionados.
-    
-    
-    
-    // Sprites:  No comprado (precio), Cuando esta comprado pero no seleccionado, cuando esta seleccionado.\
-*/
-
-
-
-
-
-
+            <string>activar_compra = 0;
+padding_box = 40;
 /* View Movement. NO TOCAR */
 scroll = false;
 prevx = 0;
 momentum = 0;
 scrolldir = 0;
 usemomentum = true;
-
-
-
-
-
-
-// Backgrounds.
-
-// Skins.
-// Poderes.
-
-
-
-// Monedas. -- &gt; comprar con plata.
-
-
-/*
-
-Lo que el programa debe hacer es:
-
-1. Comparar la cantidad actual de las monedas y el valor de cada skin,  --- &gt; valor
-   background, niveles, etc.
-
-2. Si la cantidad actual de monedas es mayor o igual a determinado valor de un -- &gt; booleano si puede o no comprarlo.
-   producto, entonces puede comprarlo.
-
-3. Si puede comprarlo y el jugador quiere comprarlo, si le da click debe 
-   preguntarle si esta seguro de comprarlo. Si no quiere comprarlo
-   entonces debe aparecer un mensaje diciendole que no tiene suficiente dinero 
-   o sugerirle que compre monedas.
-
-   monedas -= valor_producto;
-   producto1_comprado = true;
-   
-4. Si efectivamente quiere comprar y esta seguro, entonces quitarle la cantidad
-   de monedas actuales que correspondan al valor de la compra, y guardar 
-   en un archivo que producto compro: Este producto debe quedar como seleccionado. 
-
-5. Variables de seleccion [debe guardar que productos estan selecionados y cargarlos].
-
-    producto1_seleccionado = true; -- &gt; archivo.
-
-
-&lt; VARIABLES &gt;
-
-1. Variables que guarden el valor de cada producto. --&gt; Array Asociativo o Array.
-2. Array Asociativo que guarde el valor de puede comprar o no.
-4. Array Asociativo que guarde el valor de si el producto esta comprado o no.
-5. Array Asociativo que guarde si esta seleccionado o no. 
-
-    [SKIN,BACKGROUND]
-    [2,3]
-    
-    
-*/
 </string>
           </argument>
         </arguments>
@@ -134,40 +55,8 @@ Lo que el programa debe hacer es:
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/* Market Place */
-/*
-    Si el jugador oprime X productos [x,y] entonces 
-    
-    MUCHOS CONDICIONALES POR CADA PRODUCTO.
-    Me diga el index.
-
-        index -&gt; coordenadas del mouse sobre el producto.
-        - &gt; Determinar la posicion de los productos.
-        
-        src_compra(index); // no retorna nada.
-        
-        
-        1. Hace condicionales // sprites de los productos y los objetos. diseño.
-        
-        
-        
-        2. Hacer la funcion index. // programacion
-        
-        
-        
-    -- &gt; 3s    3. Guardar valores nuevos. ( cuando compre el producto [productos_comprados], cuando seleccione un producto  [productos_seleccionados] ).
-        4. Cargar valores de la tienda.
-        
-        
-        Sprite = sprite_de producto comprado pero no seleccionado
-        Sprite = producto seleccionado -- :&gt; se selecciona.
-        
-        
-        
-*/
-
+            <string>
 /* View Movement NO TOCAR. */
-
 if (scroll)
 {
     // We are scrolling
@@ -236,6 +125,45 @@ else
         // Decrement momentun if &gt; 0
         if (momentum &gt; 0) { momentum -= 1; }
     }    
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(activar_compra){  
+    draw_set_alpha(.2);
+    //draw_roundrect_colour(padding_box,padding_box-10,room_width/2 - padding_box,room_height - padding_box + 20,c_black,c_black,0);
+    draw_roundrect_colour(
+        view_xview[0] + padding_box, 
+        padding_box-10,
+        view_xview[0] + room_width/2 - padding_box,
+        room_height - padding_box + 20,
+        c_black,
+        c_black,
+        0
+    );
+    draw_set_alpha(1);
+    
+    
+    // Dibujar sprite del objeto ( index ). Dibujar el formato de 
 }
 </string>
           </argument>
