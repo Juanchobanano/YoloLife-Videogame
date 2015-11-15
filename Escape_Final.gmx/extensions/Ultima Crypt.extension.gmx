@@ -73,7 +73,7 @@
         <function>
           <name>uct_file_save</name>
           <externalName>uct_file_save</externalName>
-          <kind>2</kind>
+          <kind>11</kind>
           <help>uct_file_save(fname,pass)</help>
           <returnType>2</returnType>
           <argCount>2</argCount>
