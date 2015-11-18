@@ -21,5 +21,6 @@
   <height>40</height>
   <frames>
     <frame index="0">images\spr_barra_0.png</frame>
+    <frame index="1">images\spr_barra_1.png</frame>
   </frames>
 </sprite>
