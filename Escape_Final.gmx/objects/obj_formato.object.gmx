@@ -35,10 +35,13 @@ switch(ds_list_find_value(valor_productos,index)){ // El precio del producto en 
     break;
 }
 subimg++;
-moneda = instance_create(195,28,obj_moneda);
+moneda = instance_create(x+195,y+28,obj_moneda);
 with(moneda){
     sprite_index = spr_moneda2;
+    depth = obj_formato.depth - 1;
 }
+image_index = 0;
+image_speed = 0;
 </string>
           </argument>
         </arguments>
@@ -63,7 +66,7 @@ with(moneda){
             <kind>1</kind>
             <string>if(mouse_check_button_pressed(mb_left)){
     if((mouse_x &gt;= x and mouse_x &lt;= x + sprite_width) and (mouse_y &gt;= y and mouse_y &lt;= y + sprite_height)){
-        src_compra(index);
+        src_compra(index); // index 0 --&gt; producto 0
     }
 }
 </string>
@@ -89,8 +92,8 @@ with(moneda){
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_sprite(spr_skins,index,25,21);
-draw_sprite(spr_precios,precio_index,144,29); // 10 - 99
+draw_sprite(spr_skins,index,x + 25,y + 21);
+draw_sprite(spr_precios,precio_index,x+144,y+29); // 10 - 99
 </string>
           </argument>
         </arguments>

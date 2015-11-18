@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1000</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -33,6 +33,7 @@ prevx = 0;
 momentum = 0;
 scrolldir = 0;
 usemomentum = true;
+
 </string>
           </argument>
         </arguments>
@@ -149,19 +150,32 @@ else
           <argument>
             <kind>1</kind>
             <string>if(activar_compra){  
+    draw_sprite_ext(spr_skins,0,50,50,2,2,0,c_white,1);
     draw_set_alpha(.2);
-    //draw_roundrect_colour(padding_box,padding_box-10,room_width/2 - padding_box,room_height - padding_box + 20,c_black,c_black,0);
+
     draw_roundrect_colour(
         view_xview[0] + padding_box, 
-        padding_box-10,
-        view_xview[0] + room_width/2 - padding_box,
-        room_height - padding_box + 20,
-        c_black,
-        c_black,
+        view_yview[0] + padding_box-10,
+        view_xview[0] + room_width - padding_box,
+        view_yview[0] + room_height/2 - padding_box + 20,
+        make_colour_rgb(50,50,50),
+        make_colour_rgb(50,50,50),
         0
     );
+    
+    draw_roundrect_colour(
+        view_xview[0] + room_width/2,
+        view_yview[0] + 100,
+        view_xview[0] + room_width/2 + 100,
+        view_yview[0] + 300 + padding_box + 20,
+        make_colour_rgb(50,50,50),
+        make_colour_rgb(50,50,50),
+        0
+    );
+    
     draw_set_alpha(1);
     
+
     
     // Dibujar sprite del objeto ( index ). Dibujar el formato de 
 }

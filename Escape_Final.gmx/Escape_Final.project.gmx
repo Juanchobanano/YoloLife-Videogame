@@ -104,6 +104,7 @@
       <sprite>sprites\spr_skins</sprite>
       <sprite>sprites\spr_precios</sprite>
     </sprites>
+    <sprite>sprites\spr_barra</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0f</background>
@@ -153,6 +154,7 @@
       <object>objects\obj_teclado</object>
       <object>objects\obj_moneda</object>
       <object>objects\obj_hand</object>
+      <object>objects\obj_barra</object>
     </objects>
     <objects name="Social">
       <object>objects\obj_fb</object>
@@ -232,6 +234,7 @@
   <rooms name="rooms">
     <room>rooms\Room_Presentation</room>
     <room>rooms\Game_Menu</room>
+    <room>rooms\room88</room>
     <room>rooms\Room_Market</room>
     <room>rooms\Room_News</room>
     <room>rooms\Room_Mensajes</room>
