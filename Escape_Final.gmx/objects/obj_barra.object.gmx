@@ -7,7 +7,622 @@
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
-  <events/>
+  <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>image_index = 0;
+image_speed = 0;
+
+oprimido = 0;
+conf = 0;
+revisar = 0;
+// Variables de Control de animacion.
+parar = 0;
+contador = 0; 
+// Opcion escogida.
+opcion_menu = "";
+// Booleano que le indica si debe guardar datos o no.
+guardar = 0;
+// Ya entro?
+entrar = 0;
+
+// Variables para comenzar la entrada.
+animar = 0;
+contador_entrada = 0;
+
+animar_salida = 0;
+
+dibujar = noone;
+
+alarm[0] = 5 + sucesion;
+sucesion += 5; // Toca reiniciar esta variable.
+
+// Formatos distintos.
+/*switch(opcion_menu){
+    case "espanol":
+         sprite_index = spr_espanol; 
+    break;
+    case "ingles":
+         sprite_index = spr_ingles; 
+    break;
+    case "pads":
+         sprite_index = spr_pads;
+    break;
+    case "musica":
+         sprite_index = spr_music;
+    break
+    default:
+        if(salida == "izq"){
+            sprite_index = spr_barra_izq;
+        }else if(salida == "der"){
+            sprite_index = spr_barra_der
+        }
+    break;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>animar = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Formatos distintos. Asigna el Sprite de la barra.
+if(!revisar){
+    switch(opcion_menu){
+        case "espanol":
+             sprite_index = spr_espanol; 
+        break;
+        case "ingles":
+             sprite_index = spr_ingles; 
+        break;
+        case "pads":
+             sprite_index = spr_pads; 
+             if(paths){
+                image_index = 0;
+             }else{
+                image_index = 1;
+             }
+        break;
+        case "musica":
+             sprite_index = spr_music; 
+             if(!pausarmusica){
+                image_index = 0;
+             }else{
+                image_index = 1;
+             }
+             /*if(!pausarmusica){
+                if(idioma == "en"){
+                    image_index = 0;
+                }else if(idioma == "es"){
+                    image_index = 2;
+                }
+             }else{
+                if(idioma == "en"){
+                    image_index = 1;
+                }else if(idioma == "es"){
+                    image_index = 3;
+                }
+             }*/
+        break;
+        default:
+             sprite_index = spr_barra;
+        break;
+    }
+    revisar = 1;
+}
+/* 
+
+Se creo fuera de la room. Mover hacia dentro.
+
+Variable "entrar". Va a ser true cuando los bloques esten en posicion.
+Resuelve conflicto con proceso de salida de los bloques mas tarde.
+
+Animar para entrar uno tras el otro.
+
+*/
+
+if(!entrar and animar){
+    if(x &lt; 0){
+        hspeed = 30; 
+    }else{
+        hspeed = 0; entrar = 1; x = 0; animar = 0;
+    }
+}else if(entrar and animar_salida){
+    if(x &gt; -sprite_width){
+        hspeed = -30; 
+    }else{
+        instance_destroy();
+    }
+}
+
+// Animacion. No aplica para objeto no estandar.
+
+if(parar == 2){    
+
+    saliendo = 1;
+    
+    image_index = 0;
+    image_speed = 0;
+    with(obj_control_interfaz) { animar_bloques = 1; } // Anima las salidas.
+    parar = 3;
+    
+    // Alarma de 20 frames.
+    /*if(contador == 20){
+        with(obj_control_interfaz){ animar_bloques = 1; }
+        contador++;
+    }else if(contador &lt; 20){
+        contador++;
+    }*/
+    
+}
+
+// Donde estan.
+/*show_debug_message('x: ' + string(x));
+show_debug_message('animar: ' + string(animar));
+show_debug_message('entrar: ' + string(entrar));
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// Si ya la barra esta en posicion.
+
+if(entrar){
+    if(!oprimido){
+        // Cambiar a Sprite (Sprites personalizados) animacion y recibir y procesar input.
+        switch(opcion_menu){
+            case "espanol":
+                 if(pantalla_menu == 1){ 
+                    idioma = "es";
+                    pantalla_menu = 3; //2 dificultad
+                 }else if(pantalla_menu == 5 ){ // Pantalla de Settings.
+                    idioma = "en";
+                    conf = 1;
+                    sprite_index = spr_ingles;
+                    guardar = 1;
+                    opcion_menu = "ingles";
+                    
+                 }
+            break;
+            case "ingles":
+                 if(pantalla_menu == 1){
+                    idioma = "en";
+                    pantalla_menu = 3;
+                 }else if(pantalla_menu ==5){ // Pantalla de Settings.
+                    idioma = "es";
+                    conf = 1;
+                    sprite_index = spr_espanol;
+                    guardar = 1;
+                    opcion_menu = "espanol";
+    
+                 }
+            break;
+            case "dificil":
+                 if(pantalla_menu == 2){
+                    dificultad = "dificil";
+                    pantalla_menu = 3;
+                 }else{ // Pantalla de Settings.
+                    conf = 1;
+                    dificultad = "normal";
+                    if(idioma == "es"){
+                        image_index = 2;
+                    }else if(idioma == "en"){
+                        image_index = 3;
+                    }
+                    opcion_menu = "normal";
+                 }
+                 guardar = 1;
+            break;
+            case "normal":
+                 if(pantalla_menu == 2){
+                     dificultad = "normal";
+                     pantalla_menu = 3;
+                 }else{ // Pantalla de Settings.
+                    conf = 1;
+                    dificultad = "facil";
+                    if(idioma == "es"){
+                        image_index = 2;
+                    }else if(idioma == "en"){
+                        image_index = 3;
+                    }
+                    opcion_menu = "facil";
+                 }
+                 guardar = 1;
+            break;
+            case "facil":
+                 if(pantalla_menu == 2){
+                    dificultad = "facil";
+                    pantalla_menu = 3;
+                 }else{ // Pantalla de Settings.
+                    conf = 1;
+                    dificultad = "dificil";
+                    if(idioma == "es"){
+                        image_index = 2;
+                    }else if(idioma == "en"){
+                        image_index = 3;
+                    }
+                    opcion_menu = "dificil";
+                 }
+                 guardar = 1;
+            break;
+            case "pads":
+                conf = 1;
+                if(paths){ // Si es visible.
+                    image_index = 1;
+                    paths = 0; // Invisible.
+                }else{ // Si no es visible.
+                    image_index = 0; // Visible.
+                    paths = 1;
+                }
+            break;
+            case "musica":
+                conf = 1;
+                if(!pausarmusica){
+                    pausarmusica = 1;
+                    image_index = 1;
+                    /*if(idioma == "en"){
+                        image_index = 1;
+                    }else if(idioma == "es"){
+                        image_index = 2;
+                    }*/
+                    audio_stop_sound(sn_musica2);
+                }else{
+                    pausarmusica = 0;
+                    image_index = 0;
+                    /*if(idioma == "en"){
+                        image_index = 0;
+                    }else if(idioma == "es"){
+                        image_index = 3;
+                    }*/
+                    audio_play_sound(sn_musica2,1,1);
+                }
+            break;
+            /*case "shop":
+                conf = 1;
+                if(idioma == "en"){
+                    show_message("Marketplace will be available soon!");
+                }else if(idioma == "es"){
+                    show_message("La tienda estará disponible pronto!");
+                }
+            break;*/
+        }
+        
+        if(guardar){
+        
+            if(file_exists(working_directory + "Settings.sav")){
+                file_delete(working_directory + "Settings.sav");
+            }
+            
+            ini_open(working_directory + "Settings.sav");
+            ini_write_string("idioma","pass",idioma);
+            ini_write_string("dificultad","pass",dificultad);
+            ini_close();
+        
+            guardar = 0;
+            
+        }
+        
+        
+        // Solo procesan inputs. Formato Estandar.
+        switch(opcion_menu){
+            case "story":
+                pantalla_menu = 4;
+                //show_debug_message(pantalla_menu);
+                
+            break;
+            case "adventure":
+                opcion_seleccionada = "adventure";
+                
+            break;
+            case "challenge":
+                opcion_seleccionada = "challenge";
+                
+            break;
+            case "shop":
+                //opcion_seleccionada = "shop";
+                conf = 1;
+                if(idioma == "en"){
+                    if(show_question("Yolo Lile was nominated on Colombia Online 2015. We need your vote to win! Help us!")){
+                        url_open("http://www.colombiaenlinea.com.co/site2015/index.php/votacion");
+                    }
+                }else if(idioma == "es"){
+                    if(show_question("Yolo Lile fue nominadado en Colombia en Linea 2015, para ganar, necesitamos tu voto! Apóyanos!")){
+                        url_open("http://www.colombiaenlinea.com.co/site2015/index.php/votacion");
+                    }
+                }
+            break;
+            case "settings":
+                pantalla_menu = 5;
+              //  show_debug_message(pantalla_menu);
+                
+            break;
+            case "back":
+                switch(pantalla_menu){
+                    case 4: // Menu Story
+                        pantalla_menu = 3;
+                    break;
+                    case 5: // Menu Settings.
+                        pantalla_menu = 3;                   
+                    break;
+                }
+                promocion = irandom_range(0,2);
+            break;
+            case "jugar":
+                opcion_seleccionada = "jugar";
+            break;
+            case "continuar":
+                opcion_seleccionada = "continuar";
+            break;
+            case "highscore":
+                conf = 1;
+                if (achievement_login_status() == false &amp;&amp; os_is_network_connected()){
+                    achievement_login();
+                }else{
+                    achievement_show_leaderboards();
+                    if(Best_Muertes != 0){
+                        achievement_post_score("CgkIn7v1l5McEAIQCA",Best_Muertes);
+                    }
+                }
+            break;
+        }
+        
+        // Desaparecer pregunta.
+        /*if(instance_exists(obj_pregunta)){
+            with(obj_pregunta) { animar = 2; }
+        }*/
+        
+        if(!conf){ // Si la opcion no hace parte de settings a excepcion de back.
+            image_speed = .5;
+        }
+        
+        // Hacer sonar el boton.
+        audio_play_sound(sn_boton,1,0);
+        oprimido = 1;
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if(parar &lt; 2){
+    parar++;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+// Seleccione el sprite a dibujar: Formato Estandar.
+
+// Ingles.
+if(idioma == "en"){
+    switch(opcion_menu){
+        case "story":
+            dibujar = spr_story;
+        break;
+        case "adventure":
+            dibujar = spr_adventure;
+        break;
+        case "challenge":
+            dibujar = spr_challenge;
+        break;
+        case "shop":
+            dibujar = spr_vote;
+            //dibujar = spr_marketplace;
+        break;
+        case "settings":
+            dibujar = spr_settings;
+        break;
+        case "jugar":
+            dibujar = spr_play;
+        break;
+        case "continuar":
+            dibujar = spr_continue;
+        break;
+        case "highscore":
+            dibujar = spr_highscore;
+        break;
+        case "back":
+            dibujar = spr_back;
+        break;
+        case "dificil":
+            dibujar = spr_hard;
+        break;
+        case "normal":
+            dibujar = spr_medium;
+        break;
+        case "facil":
+            dibujar = spr_easy;
+        break;
+    }
+// Español
+}else if(idioma == "es"){
+     switch(opcion_menu){
+        case "story":
+            dibujar = spr_historia;
+        break;
+        case "adventure":
+            dibujar = spr_aventura;
+        break;
+        case "challenge":
+            dibujar = spr_retador;
+        break;
+        case "shop":
+            dibujar = spr_vota;
+            //dibujar = spr_tienda;
+        break;
+        case "settings":
+            dibujar = spr_configuracion;
+        break;
+        case "jugar":
+            dibujar = spr_jugar;
+        break;
+        case "continuar":
+            dibujar = spr_continuar;
+        break;
+        case "highscore":
+            dibujar = spr_puntaje;
+        break;
+        case "back":
+            dibujar = spr_atras;
+        break;
+        case "dificil":
+            dibujar = spr_dificil;
+        break;
+        case "normal":
+            dibujar = spr_medio;
+        break;
+        case "facil":
+            dibujar = spr_facil;
+        break;
+    }
+}
+
+if(dibujar != noone){
+    // Dibuje el Sprite.
+    if(image_index == 0){
+        draw_sprite(dibujar,0,x + sprite_width - 28 - sprite_get_width(dibujar), y + 8);
+    }else{
+        draw_sprite(dibujar,1,x + sprite_width - 28 - sprite_get_width(dibujar), y + 8);
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
   <PhysicsObject>0</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
   <PhysicsObjectShape>0</PhysicsObjectShape>

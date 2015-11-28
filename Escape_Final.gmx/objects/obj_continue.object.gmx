@@ -55,7 +55,7 @@ image_speed = 0;
           <argument>
             <kind>1</kind>
             <string>if(animar){
-    src_alpha(1);
+    src_alpha(1,self);
 }
 </string>
           </argument>

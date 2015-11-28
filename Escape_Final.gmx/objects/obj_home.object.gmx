@@ -102,12 +102,14 @@ else image_blend = c_white
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(reto){
+            <string>if(reto){ // Si challenge reinicie todas las variables y cambia la musica.
     reto = 0; iniciar = 0;
     audio_sound_gain(sn_challenge,0,2000);
-    audio_sound_gain(sn_musica,1,5000);
+    audio_sound_gain(sn_musica2,1,5000);
 }else if(aventura and room == Room_Adventure){
     aventura = 0;
+    audio_sound_gain(sn_musica,0,2000);
+    audio_sound_gain(sn_musica2,1,5000);
 }
 
 if(aventura and room != Room_Adventure){
@@ -116,7 +118,9 @@ if(aventura and room != Room_Adventure){
     tiempo = 0;
     src_trans(Room_Adventure);
 }else{
+    volver_menu = 1; // Indica que esta regresando al menu.
     src_trans(Game_Menu);
+    promocion = irandom_range(0,2);
 }
 </string>
           </argument>

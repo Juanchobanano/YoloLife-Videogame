@@ -26,13 +26,54 @@
           <argument>
             <kind>1</kind>
             <string>if(room==Room_Presentation){
-    globalvar Rooms, SavedRoom, Muertes, res, monedas, monedas_room, idioma, trampa, trampa2, pos, tiempo, Score_tiempo, Best_Muertes, iniciar, reto,
-              bk_x, bk_y, y_index, contador_creador, invertir, final, paths, estado, pausarmusica, noticias, publicidad;
+    globalvar Rooms, SavedRoom, Muertes, res, monedas, monedas_room, idioma, dificultad, trampa, trampa2, pos, tiempo, Score_tiempo, Best_Muertes, iniciar, reto,
+              bk_x, bk_y, y_index, contador_creador, invertir, final, paths, estado, pausarmusica, noticias, publicidad, timer, rate, never_rate, promocion;
               
     globalvar subimg, nivel, aventura, estrellas, cantidad_estrellas, mostrar_tiempo; // Adventure.
     pausarmusica = 0;
     
     globalvar valor_productos, productos_comprados, productos_seleccionados; // Shop.
+    
+    globalvar opciones_menu, pantalla_menu, opcion_seleccionada, sucesion, saliendo, volver_menu;
+    
+    volver_menu = 0;
+    saliendo = 0;
+    opciones_menu = ds_list_create(); // Conjunto de Opciones.
+    sucesion = 0;
+    pantalla_menu = 0; // En que pantalla de seleccion se encuentra.
+    opcion_seleccionada = ""; // Indica la opcion que selecciono.
+    dificultad = "medio";
+    
+    /* Interfaz Menú */
+    
+    // Opciones iniciales. Revisa si ya esta la configuracion basica.
+    if(file_exists(working_directory + "Settings.sav")){ 
+        // Pantalla 3
+        ds_list_add(opciones_menu,"story");
+        ds_list_add(opciones_menu,"adventure");
+        ds_list_add(opciones_menu,"shop");
+        ds_list_add(opciones_menu,"settings");
+        ds_list_add(opciones_menu,"");
+    }else{
+        // Pantalla 1
+        ds_list_add(opciones_menu,"espanol");
+        ds_list_add(opciones_menu,"ingles");
+        ds_list_add(opciones_menu,"");
+        ds_list_add(opciones_menu,"");
+        ds_list_add(opciones_menu,"");
+    }
+    
+    /*  Rate  */
+    rate = 0;
+    never_rate = 0;
+    if(file_exists(working_directory + "rate.sav")){
+        ini_open(working_directory + "rate.sav");
+        rate = ini_read_real("rate","pass",0);
+        never_rate = ini_read_real("never_rate","pass",0);
+        ini_close();
+    }
+ 
+    // TIENDA
         
     // Productos no consumibles.
     valor_productos = ds_list_create();
@@ -97,17 +138,28 @@
         ds_list_add(estrellas,0);
     }
         
-    /*Locales del Rate.
-    rate = 0; 
-    preguntar = 0;*/
+    // Publicidad.
     publicidad = 0;    
 
-    /// Variable Settings.
+    // Variable Settings.
     idioma = "en";
     
     // Variable Noticia.
-    noticias = 0;
+    // noticias = 0;
+    /*timer = 50000;
+    if timer &lt;= 0
+    {
+    shop_leave_rating("Thanks for playing the game! Why not leave a comment?", "Okay!", "Not Today!", "http://MacSweeney/comments");
+    timer = 10000000;
+    }
+ else
+    {
+    timer -= 1;
+    }*/
+    
+    // Variable de Mensajes y Promocion
     estado = 0;
+    promocion = irandom_range(0,2);
     
     // Challenge Mode Global Variables.
     tiempo = 0;
@@ -117,7 +169,6 @@
     
     // Variable Story Score.
     Best_Muertes = 0;
-    
     
     paths = 1;
     final = 0;
@@ -155,15 +206,19 @@
         
     /* Lector Noticias */   
     if(file_exists(working_directory + 'noticias2.sav')){
-        ini_open(working_directory + 'noticias2.sav');
+        file_delete(working_directory + 'noticias2.sav');
+        /*ini_open(working_directory + 'noticias2.sav');
         noticias = ini_read_real("noticias","pass",0);
-        ini_close();
+        ini_close();*/
     }
+    
+    
     
     /* Lector de Settings */
     if(file_exists(working_directory + "Settings.sav")){
         ini_open(working_directory + "Settings.sav");
         idioma = ini_read_string("idioma","pass",0);
+        dificultad = ini_read_string("dificultad","pass",0);
         ini_close();
     }
     
@@ -208,7 +263,8 @@
     }
     banner++; */
      
-    audio_play_sound(sn_musica,1,1);
+    audio_play_sound(sn_musica2,1,1);
+
     alarm[0] = 45;
 }
 </string>

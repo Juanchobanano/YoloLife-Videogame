@@ -60,7 +60,7 @@ res=1;
 reto = 1;
 //src_trans(game1c);
 if(!pausarmusica){
-    audio_sound_gain(sn_musica,0,1600);
+    audio_sound_gain(sn_musica2,0,1600);
     audio_stop_sound(sn_challenge);
     audio_play_sound(sn_challenge,1,1);
     audio_sound_gain(sn_challenge,0,0);

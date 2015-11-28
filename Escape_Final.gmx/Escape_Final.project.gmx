@@ -19,32 +19,18 @@
     <sound>sound\sn_challenge</sound>
     <sound>sound\sn_teleport</sound>
     <sound>sound\sn_coin</sound>
+    <sound>sound\sn_boton</sound>
+    <sound>sound\sn_musica2</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Botones">
-      <sprite>sprites\spr_shop</sprite>
-      <sprite>sprites\spr_hs</sprite>
-      <sprite>sprites\spr_challenge</sprite>
-      <sprite>sprites\spr_retador</sprite>
       <sprite>sprites\spr_new</sprite>
       <sprite>sprites\spr_right</sprite>
       <sprite>sprites\spr_left</sprite>
       <sprite>sprites\spr_up</sprite>
-      <sprite>sprites\spr_exit</sprite>
-      <sprite>sprites\spr_fb</sprite>
-      <sprite>sprites\spr_pads</sprite>
       <sprite>sprites\spr_teclado</sprite>
-      <sprite>sprites\spr_idioma</sprite>
-      <sprite>sprites\spr_news</sprite>
-      <sprite>sprites\spr_play</sprite>
-      <sprite>sprites\spr_story</sprite>
-      <sprite>sprites\spr_adventure</sprite>
-      <sprite>sprites\spr_aventura</sprite>
-      <sprite>sprites\spr_music</sprite>
-      <sprite>sprites\spr_continue</sprite>
       <sprite>sprites\spr_reset</sprite>
       <sprite>sprites\spr_home</sprite>
-      <sprite>sprites\spr_youtube</sprite>
     </sprites>
     <sprites name="Entorno">
       <sprite>sprites\spr_titulo</sprite>
@@ -54,9 +40,10 @@
       <sprite>sprites\spr_pastmemories</sprite>
       <sprite>sprites\spr_text</sprite>
       <sprite>sprites\spr_baius</sprite>
-      <sprite>sprites\spr_start</sprite>
-      <sprite>sprites\spr_restart</sprite>
       <sprite>sprites\spr_hand</sprite>
+      <sprite>sprites\spr_nominados</sprite>
+      <sprite>sprites\spr_ninjamoo</sprite>
+      <sprite>sprites\spr_cristhian</sprite>
     </sprites>
     <sprites name="Personaje">
       <sprite>sprites\spr_personaje</sprite>
@@ -84,10 +71,10 @@
       <sprite>sprites\spr_lava</sprite>
       <sprite>sprites\spr_will_voltereta</sprite>
       <sprite>sprites\spr_willbaile</sprite>
-      <sprite>sprites\spr_palanca2</sprite>
       <sprite>sprites\spr_tubo</sprite>
     </sprites>
     <sprites name="Room_Niveles">
+      <sprite>sprites\spr_diana</sprite>
       <sprite>sprites\spr_num_level</sprite>
       <sprite>sprites\spr_nivel</sprite>
       <sprite>sprites\spr_star</sprite>
@@ -96,22 +83,72 @@
       <sprite>sprites\spr_clamud</sprite>
       <sprite>sprites\spr_camacho</sprite>
       <sprite>sprites\spr_steven</sprite>
+      <sprite>sprites\spr_juancamilo</sprite>
+      <sprite>sprites\spr_danielb</sprite>
     </sprites>
-    <sprite>sprites\sprite62</sprite>
     <sprites name="Market">
       <sprite>sprites\spr_formato</sprite>
       <sprite>sprites\spr_moneda2</sprite>
       <sprite>sprites\spr_skins</sprite>
       <sprite>sprites\spr_precios</sprite>
     </sprites>
-    <sprite>sprites\spr_barra</sprite>
+    <sprites name="Interfaz - Menu">
+      <sprite>sprites\spr_nombre_nivel</sprite>
+      <sprite>sprites\spr_formato_shop</sprite>
+      <sprites name="Barra Estandar">
+        <sprite>sprites\spr_barra</sprite>
+      </sprites>
+      <sprites name="Press to Start">
+        <sprite>sprites\spr_press2</sprite>
+        <sprite>sprites\spr_press1</sprite>
+      </sprites>
+      <sprites name="Agregados">
+        <sprites name="Español">
+          <sprite>sprites\spr_aventura</sprite>
+          <sprite>sprites\spr_retador</sprite>
+          <sprite>sprites\spr_configuracion</sprite>
+          <sprite>sprites\spr_jugar</sprite>
+          <sprite>sprites\spr_historia</sprite>
+          <sprite>sprites\spr_atras</sprite>
+          <sprite>sprites\spr_continuar</sprite>
+          <sprite>sprites\spr_tienda</sprite>
+          <sprite>sprites\spr_reiniciar</sprite>
+          <sprite>sprites\spr_puntaje</sprite>
+          <sprite>sprites\spr_dificil</sprite>
+          <sprite>sprites\spr_comenzar</sprite>
+          <sprite>sprites\spr_medio</sprite>
+          <sprite>sprites\spr_facil</sprite>
+          <sprite>sprites\spr_vota</sprite>
+        </sprites>
+        <sprites name="Ingles">
+          <sprite>sprites\spr_adventure</sprite>
+          <sprite>sprites\spr_play</sprite>
+          <sprite>sprites\spr_start</sprite>
+          <sprite>sprites\spr_marketplace</sprite>
+          <sprite>sprites\spr_story</sprite>
+          <sprite>sprites\spr_highscore</sprite>
+          <sprite>sprites\spr_continue</sprite>
+          <sprite>sprites\spr_challenge</sprite>
+          <sprite>sprites\spr_back</sprite>
+          <sprite>sprites\spr_settings</sprite>
+          <sprite>sprites\spr_restart</sprite>
+          <sprite>sprites\spr_hard</sprite>
+          <sprite>sprites\spr_medium</sprite>
+          <sprite>sprites\spr_easy</sprite>
+          <sprite>sprites\spr_vote</sprite>
+        </sprites>
+      </sprites>
+      <sprites name="Barras Personalizadas">
+        <sprite>sprites\spr_espanol</sprite>
+        <sprite>sprites\spr_ingles</sprite>
+        <sprite>sprites\spr_pads</sprite>
+        <sprite>sprites\spr_music</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\background0f</background>
     <background>background\background0</background>
     <background>background\background1</background>
-    <background>background\background4</background>
-    <background>background\background3</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -127,6 +164,7 @@
     <script>scripts\src_if.gml</script>
     <script>scripts\src_compra.gml</script>
     <script>scripts\src_desbloquear.gml</script>
+    <script>scripts\src_bloques.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_1</font>
@@ -139,12 +177,6 @@
     <font>fonts\font_menu</font>
   </fonts>
   <objects name="objects">
-    <objects name="Adventure">
-      <object>objects\obj_level</object>
-      <object>objects\obj_adventure</object>
-      <object>objects\obj_purogames</object>
-      <object>objects\obj_control_star</object>
-    </objects>
     <objects name="Entorno">
       <object>objects\obj_titulo2</object>
       <object>objects\obj_titulo</object>
@@ -154,27 +186,14 @@
       <object>objects\obj_teclado</object>
       <object>objects\obj_moneda</object>
       <object>objects\obj_hand</object>
-      <object>objects\obj_barra</object>
-    </objects>
-    <objects name="Social">
-      <object>objects\obj_fb</object>
+      <object>objects\obj_nominados</object>
     </objects>
     <objects name="Botones">
-      <object>objects\obj_paths</object>
-      <object>objects\obj_music</object>
       <object>objects\obj_jump</object>
       <object>objects\obj_right</object>
       <object>objects\obj_left</object>
       <object>objects\obj_reset</object>
-      <object>objects\obj_play</object>
-      <object>objects\obj_hs</object>
-      <object>objects\obj_challenge</object>
-      <object>objects\obj_continue</object>
       <object>objects\obj_home</object>
-      <object>objects\obj_idioma</object>
-      <object>objects\obj_shop</object>
-      <object>objects\obj_news</object>
-      <object>objects\obj_story</object>
     </objects>
     <objects name="Publicidad">
       <object>objects\obj_credits</object>
@@ -189,12 +208,13 @@
       <object>objects\obj_control_shake</object>
       <object>objects\obj_control_mensajes</object>
       <object>objects\obj_control_news</object>
-      <object>objects\obj_control_challenge</object>
       <object>objects\obj_control_adventure</object>
+      <object>objects\obj_control_challenge</object>
       <object>objects\obj_fadein</object>
       <object>objects\obj_fadeout</object>
       <object>objects\obj_text</object>
       <object>objects\obj_BuiltIn_Firework</object>
+      <object>objects\obj_room_adventure</object>
     </objects>
     <objects name="Personaje">
       <object>objects\obj_portal</object>
@@ -224,17 +244,28 @@
         <object>objects\obj_lava_des</object>
         <object>objects\obj_tubo</object>
       </objects>
-      <object>objects\obj_puerta</object>
     </objects>
     <objects name="Market">
       <object>objects\obj_control_shop</object>
       <object>objects\obj_formato</object>
     </objects>
+    <objects name="Interfaz - Menu">
+      <object>objects\obj_control_interfaz</object>
+      <object>objects\obj_barra</object>
+      <object>objects\obj_press</object>
+      <objects name="Adventure">
+        <object>objects\obj_level</object>
+        <object>objects\obj_adventure</object>
+        <object>objects\obj_nombre_nivel</object>
+        <object>objects\obj_formato_shop</object>
+        <object>objects\obj_barra_adventure</object>
+        <object>objects\obj_control_star</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\Room_Presentation</room>
     <room>rooms\Game_Menu</room>
-    <room>rooms\room88</room>
     <room>rooms\Room_Market</room>
     <room>rooms\Room_News</room>
     <room>rooms\Room_Mensajes</room>
@@ -326,6 +357,10 @@
       <room>rooms\game2_a</room>
       <room>rooms\game3_a</room>
       <room>rooms\game4_a</room>
+      <room>rooms\game5_a</room>
+      <room>rooms\game6_a</room>
+      <room>rooms\game7_a</room>
+      <room>rooms\game8_a</room>
     </rooms>
   </rooms>
   <help>

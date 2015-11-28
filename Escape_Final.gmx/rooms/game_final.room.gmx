@@ -12,7 +12,7 @@
   <showcolour>-1</showcolour>
   <code>instance_create(270,205,obj_boss); // 282
 if(!pausarmusica){
-audio_sound_gain(sn_musica,0,1000);
+audio_sound_gain(sn_musica2,0,1000);
 audio_sound_gain(sn_boss,1,5000);
 audio_play_sound(sn_boss,1,1);
 }</code>

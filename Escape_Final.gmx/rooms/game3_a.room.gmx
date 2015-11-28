@@ -390,7 +390,6 @@
     <instance objName="obj_moneda" x="675" y="125" name="inst_D8544268" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_moneda" x="475" y="0" name="inst_C1FDE26F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_moneda" x="125" y="0" name="inst_75F6F401" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_control_adventure" x="50" y="0" name="inst_1D098CC6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="-25" y="275" name="inst_C10A60EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="-25" y="375" name="inst_8EAE8D60" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="800" y="275" name="inst_C806E9C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

@@ -58,7 +58,7 @@ if(idioma == "en"){
           <argument>
             <kind>1</kind>
             <string>if(animar){
-    src_alpha(0);   
+    src_alpha(0,self);   
 }
 </string>
           </argument>

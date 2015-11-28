@@ -58,7 +58,6 @@ background_y[1] = 480;</code>
     <instance objName="obj_control_news" x="18" y="17" name="inst_275233AB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_copyright" x="93" y="872" name="inst_97690BDE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_home" x="529" y="850" name="inst_987492D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_idioma" x="73" y="56" name="inst_AB38702C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

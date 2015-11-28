@@ -30,9 +30,43 @@ once = 0;
 monedas_locales = 0;
 
 // AdBuddiz.
-if((Rooms mod 10) == 0){
+if((Rooms mod 10) == 0){ 
     AdBuddiz_ShowAd();
 }
+
+if(rate &lt; 3){
+    rate++;
+}
+
+// Preguntar Rate.
+if((rate == 3 or rate == 5 or rate == 10 or rate == 16 or rate == 22) and !never_rate){
+    if(idioma == "en"){
+        //mensaje = show_question("Do you like Yolo Life? We work hard everyday to give you the best yolo experience! Consider reviewing or telling your friends!");
+        shop_leave_rating(
+        "Do you like Yolo Life? We work hard everyday to give you the best yolo experience! Consider reviewing or telling your friends!",
+        "Offcourse! :)",
+        "Remind me later.",
+        "https://play.google.com/store/apps/details?id=com.BaiusGames.YoloLife&amp;hl=es"
+        );
+    }else if(idioma == "es"){
+        //mensaje = show_question("Te gusta Yolo Life? Trabajamos todos los dias con dedicación para darte la mejor experiencia! Considera calificarnos o compartirlo con tus amigos!");
+        shop_leave_rating(
+        "Te gusta Yolo Life? Trabajamos todos los dias con dedicación para darte la mejor experiencia! Considera calificarnos o compartirlo con tus amigos!",
+        "Por supuesto! :)",
+        "Tal vez después.",
+        "https://play.google.com/store/apps/details?id=com.BaiusGames.YoloLife&amp;hl=es"
+        );
+    }
+    never_rate = 1;
+}
+
+if(file_exists(working_directory + "rate.sav")){
+    file_delete(working_directory + "rate.sav");
+}
+ini_open(working_directory + "rate.sav");
+ini_write_real("rate","pass",rate);
+ini_close();
+
 
 // Admob.
 /*if((Rooms mod 24) == 0){
@@ -475,6 +509,7 @@ if((reto and iniciar) or (aventura and iniciar)){
                 with(ch){ comenzar = 1; xx = 800 + (room_width/2)/2; } 
                 alarm[1] = 1; // Polvora.
                 //tiempo = 0;
+                
             // &lt; ADVENTURE MODE &gt;
             }else if(!reto and aventura){
             
@@ -503,6 +538,7 @@ if((reto and iniciar) or (aventura and iniciar)){
     }
 }else if(room == gamex1){  // Story Mode.
     final = 1;
+    
     // Guardar este valor.
     if(Best_Muertes == 0){
         Best_Muertes = Muertes;

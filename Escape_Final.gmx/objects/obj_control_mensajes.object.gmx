@@ -65,12 +65,12 @@ padding = 40;
                     Rooms = 0;
                     SavedRoom = game1;
                     Muertes = 0;
-                    monedas = 0;
                     estado = 1;
                     audio_play_sound(sn_win,1,0);
                     mouse_clear(mb_left);
                 }else if(mouse_x &gt;= room_width/2+60 and mouse_x &lt;= room_width/2+90 and mouse_y &gt;= 250 and mouse_y &lt;= 250+20){ // No
                     room_goto(Game_Menu);
+                    volver_menu = 1; // Indica que esta regresando al menu.
                     mouse_clear(mb_left);
                     audio_play_sound(sn_muerte,1,0);
                     estado = 0;

@@ -28,7 +28,7 @@
             <string>image_speed = 0;
 //image_index = 1;
 depth = obj_control_challenge.depth - 1;
-ox = x
+ox = x;
 timer = 0
 spd = .2;
 amplitude = 30;

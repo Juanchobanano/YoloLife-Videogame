@@ -57,11 +57,16 @@ background_hspeed[0] = -2;</code>
     <instance objName="obj_level" x="76" y="100" name="inst_FE544CFB" locked="0" code="room_a = game1_a;&#xA;seleccion = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_level" x="260" y="100" name="inst_8993F46E" locked="0" code="room_a = game2_a;&#xA;seleccion = 2;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_level" x="444" y="100" name="inst_ACFADC0D" locked="0" code="room_a = game3_a;&#xA;seleccion = 3;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_level" x="628" y="100" name="inst_F650E6B6" locked="0" code="room_a = game4_a;&#xA;seleccion = 4;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_reset" x="382" y="5" name="inst_4D702C36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_home" x="188" y="5" name="inst_05854670" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_level" x="628" y="100" name="inst_F650E6B6" locked="0" code="room_a = game4_a;&#xA;seleccion = 4;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_reset" x="424" y="3" name="inst_4D702C36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_home" x="202" y="5" name="inst_05854670" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_fadein" x="29" y="25" name="inst_4E021525" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_copyright" x="216" y="432" name="inst_0199E27C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_copyright" x="207" y="432" name="inst_0199E27C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_level" x="76" y="265" name="inst_62E0CB70" locked="0" code="room_a = game5_a;&#xA;seleccion = 5;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_level" x="260" y="268" name="inst_C8963E4D" locked="0" code="room_a = game6_a;&#xA;seleccion = 6;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_level" x="444" y="270" name="inst_AE31A9AE" locked="0" code="room_a = game7_a;&#xA;seleccion = 7;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_level" x="628" y="268" name="inst_384102B6" locked="0" code="room_a = game8_a;&#xA;seleccion = 8;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_room_adventure" x="69" y="26" name="inst_56AD1A39" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
